@@ -202,22 +202,7 @@ void* geany_start(void *args)
 
 gboolean on_button1_clicked (GtkButton *widget, gpointer   user_data)
 {
-    ///взять список файлов из текстового поля
-    GtkTextIter start,end, end_buffer;
-    gtk_text_buffer_get_bounds(textbuffer1,&start,&end_buffer);
-int count=gtk_text_buffer_get_line_count(textbuffer1);
-    char *text[count]; //указатели на отдельные строки буфера
 int i=0;
-for(;i<count-1;++i)
-{
-	gtk_text_buffer_get_iter_at_line (textbuffer1,&start,i);
-	gtk_text_buffer_get_iter_at_line (textbuffer1,&end,i+1);
-	gtk_text_iter_backward_char(&end);
-	text[i]=gtk_text_buffer_get_text(textbuffer1,&start,&end,FALSE);
-}
-gtk_text_buffer_get_iter_at_line (textbuffer1,&start,i+1);
-gtk_text_iter_backward_char(&end_buffer);
-text[i]=gtk_text_buffer_get_text(textbuffer1,&start,&end_buffer,FALSE);
 catalog *catalog1=catalog_common;
 add_elements_to_catalog(catalog1,catalog1->path);
 catalog1->DirExploreCount=0;
